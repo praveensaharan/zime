@@ -3,6 +3,7 @@ import { Table, Input, Select, Pagination } from "antd";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const { Search } = Input;
 const { Option } = Select;
@@ -122,10 +123,20 @@ const Home = () => {
     <>
       <section className="bg-gray-100">
         <div className="container mx-auto p-4 sm:p-8">
-          <h1 className="text-3xl font-bold text-gray-600 mb-4">
+          <motion.h1
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-3xl font-bold text-gray-600 mb-4"
+          >
             Explore Awesome Posts
-          </h1>
-          <div className="flex flex-col sm:flex-row items-center justify-between mb-4">
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="flex flex-col sm:flex-row items-center justify-between mb-4"
+          >
             <Search
               placeholder="Search posts"
               onSearch={handleSearch}
@@ -147,8 +158,13 @@ const Home = () => {
                 </Option>
               ))}
             </Select>
-          </div>
-          <div className="table-container overflow-x-auto rounded-lg shadow-lg">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="table-container overflow-x-auto rounded-lg shadow-lg"
+          >
             <Table
               dataSource={filteredPosts}
               columns={columns}
@@ -157,8 +173,13 @@ const Home = () => {
               bordered
               className="rounded-lg"
             />
-          </div>
-          <div className="flex justify-center mt-4">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="flex justify-center mt-4"
+          >
             <Pagination
               current={pagination.current}
               pageSize={pagination.pageSize}
@@ -166,7 +187,7 @@ const Home = () => {
               onChange={handlePaginationChange}
               className="text-blue-600"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
